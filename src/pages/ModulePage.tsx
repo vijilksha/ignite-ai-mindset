@@ -1,4 +1,4 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { modules, getLessonTypeLabel, getLessonTypeColor } from "@/data/modules";
 import { useProgress } from "@/hooks/useProgress";
 import {
@@ -79,9 +79,9 @@ const ModulePage = () => {
           const completed = isCompleted(lesson.id);
 
           return (
-            <button
+            <Link
               key={lesson.id}
-              onClick={() => toggleLesson(lesson.id)}
+              to={`/module/${mod.id}/lesson/${lesson.id}`}
               className={`w-full text-left flex items-start gap-4 p-4 rounded-xl border transition-all duration-200 ${
                 completed
                   ? "bg-success/5 border-success/20"
@@ -118,7 +118,7 @@ const ModulePage = () => {
                 <Clock className="h-3 w-3" />
                 {lesson.duration}
               </div>
-            </button>
+            </Link>
           );
         })}
       </div>
