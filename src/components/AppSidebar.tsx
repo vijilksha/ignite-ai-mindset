@@ -2,7 +2,7 @@ import { NavLink } from "@/components/NavLink";
 import { useLocation } from "react-router-dom";
 import { modules } from "@/data/modules";
 import { useProgress } from "@/hooks/useProgress";
-import { Brain, Menu, X } from "lucide-react";
+import { Brain, Menu, X, MapPin } from "lucide-react";
 import { useState } from "react";
 
 export function AppSidebar() {
@@ -87,6 +87,23 @@ export function AppSidebar() {
             );
           })}
         </nav>
+
+        {/* Roadmap link */}
+        <div className="px-3 pb-2">
+          <NavLink
+            to="/roadmap"
+            className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition-all hover:bg-sidebar-accent/50 ${
+              location.pathname === "/roadmap" ? "bg-sidebar-accent text-sidebar-accent-foreground" : ""
+            }`}
+            activeClassName="bg-sidebar-accent text-sidebar-accent-foreground"
+            onClick={() => setMobileOpen(false)}
+          >
+            <div className="flex items-center justify-center w-7 h-7 rounded-md text-xs shrink-0 bg-accent/20 text-accent">
+              <MapPin className="h-3.5 w-3.5" />
+            </div>
+            <p className="truncate font-medium leading-tight">12-Month Roadmap</p>
+          </NavLink>
+        </div>
 
         {/* Footer */}
         <div className="px-6 py-4 border-t border-sidebar-border">
