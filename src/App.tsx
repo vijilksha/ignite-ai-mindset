@@ -8,6 +8,7 @@ import { AppSidebar } from "@/components/AppSidebar";
 import Dashboard from "./pages/Dashboard";
 import ModulePage from "./pages/ModulePage";
 import LessonPage from "./pages/LessonPage";
+import RoadmapPage from "./pages/RoadmapPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -26,6 +27,7 @@ const App = () => (
                 <Route path="/" element={<Dashboard />} />
                 <Route path="/module/:moduleId" element={<ModulePage />} />
                 <Route path="/module/:moduleId/lesson/:lessonId" element={<LessonPage />} />
+                <Route path="/roadmap" element={<RoadmapPage />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </main>
