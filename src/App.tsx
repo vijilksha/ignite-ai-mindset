@@ -7,6 +7,7 @@ import { ProgressProvider } from "@/hooks/useProgress";
 import { AppSidebar } from "@/components/AppSidebar";
 import Dashboard from "./pages/Dashboard";
 import ModulePage from "./pages/ModulePage";
+import LessonPage from "./pages/LessonPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -24,6 +25,7 @@ const App = () => (
               <Routes>
                 <Route path="/" element={<Dashboard />} />
                 <Route path="/module/:moduleId" element={<ModulePage />} />
+                <Route path="/module/:moduleId/lesson/:lessonId" element={<LessonPage />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </main>
